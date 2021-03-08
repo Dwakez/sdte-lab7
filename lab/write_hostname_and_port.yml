@@ -1,0 +1,13 @@
+- hosts: web
+  tasks:
+    - name: 'write hostname'
+      replace:
+        path: /var/www/default/index.html
+        regexp: HOSTNAME
+        replace: '{{ ansible_hostname }}'
+
+    - name: 'write port'
+      replace:
+        path: /var/www/default/index.html
+        regexp: PORT
+        replace: '{{ ansible_port }}'
